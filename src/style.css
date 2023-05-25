@@ -1,7 +1,22 @@
-body {
-  background-color: rgb(233, 162, 76);
+table{
+  border-collapse: collapse;
+  border: 2px solid rgb(200, 200, 200);
+  letter-spacing: 1px;
+  font-size: 1rem;
 }
 
-.hello {
-  color: red;
+td, th {
+  padding: 10px 20px;
+  border: 1px solid rgb(190, 190, 190);
+}
+
+.time-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10%;
+}
+
+.heading {
+  text-align: center;
 }
