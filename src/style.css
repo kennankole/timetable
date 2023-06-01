@@ -14,7 +14,8 @@ td, th {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10%;
+  padding: 3%;
+  border: 1px solid rgb(190, 190, 190);
 }
 
 .heading {
