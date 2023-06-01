@@ -1,10 +1,27 @@
 const cancelButton = document.getElementById('cancel');
 const dialog = document.getElementById('favDialog');
-// const form = document.getElementById('form-data');
 
 const openCheck = (dialog, className) => {
   if (dialog.open) {
-    document.getElementById('label-text').innerHTML = `Plan your ${className} here`;
+    document.getElementById('form-container').innerHTML = `
+      <div>
+        <h1>Plan your ${className}</h1>
+        <form method="" id="form-data">
+        <label name="task">Task</label>
+          <input type="text" placeholder="Enter task...">
+          <label name="date">Date:</label>
+          <input type="date" placeholder="Enter date">
+          <label name="day">Day:</label>
+          <input type="text" placeholder="day" value="${className}">
+          <label name="time" >From:</label>
+          <input type="time" >
+          <label name="time" >To:</label>
+          <input type="time" >
+          <button type="submit">Confirm</button>
+          <button id="cancel" type="reset">Cancel</button>
+        </form>
+      </div>
+    `;
   }
 };
 
