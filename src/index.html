@@ -10,14 +10,6 @@
 <body>
   <div class="time-table">
     <h1 class="heading">Let's account for out time</h1>
-    <!-- <button id="open-modal">Open</button> -->
-    <div id="modal" class="modal-overlay">
-      <div class="modal-content">
-        <h2 class="header-text">Modal Title</h2>
-        <p>This is a custom modal pop-up</p>
-        <button id="close-modal">Close</button>
-      </div>
-    </div>
     <table>
       <tr>
         <th >Sunday</th>
@@ -39,6 +31,24 @@
       </tr>
     </table>
   </div>
+  <dialog id="favDialog">
+    <form method="dialog" id="form-data">
+      <p>
+        <label for="favAnimal" id="label-text">Favorite animal:</label>
+        <select name="favAnimal" id="favAnimal">
+          <option value="">
+            <option value="">Brine shrimp</option>
+            <option value="">Red panda</option>
+            <option value="">Spider monkey</option>
+          </option>
+        </select>
+      </p>
+      <div>
+        <button id="cancel" type="reset">Cancel</button>
+        <button type="submit">Confirm</button>
+      </div>
+    </form>
+  </dialog>
   <script src="./index.js" defer></script>
 </body>
 </html>

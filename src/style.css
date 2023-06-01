@@ -45,7 +45,7 @@ td, th {
 }
 
 /* Modal */
-.modal-overlay {
+/* .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -61,4 +61,4 @@ td, th {
   background-color: white;
   padding: 20px;
   border-radius: 5px;
-}
+} */
