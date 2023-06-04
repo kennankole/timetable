@@ -1,5 +1,17 @@
-const cancelButton = document.getElementById('cancel');
 const dialog = document.getElementById('favDialog');
+
+const displayStoredData = (tdElement, data) => {
+  if (data) {
+    tdElement.innerHTML += `
+      <div>
+        <p>Task: ${data.task}</p>
+        <p>Date: ${data.date}</p>
+        <p>From: ${data.fromTime}</p>
+        <p>To: ${data.toTime}</p>
+      </div>
+    `;
+  }
+};
 
 const openCheck = (dialog, className) => {
   if (dialog.open) {
@@ -7,94 +19,72 @@ const openCheck = (dialog, className) => {
       <div>
         <h1>Plan your ${className}</h1>
         <form method="" id="form-data">
-        <label name="task">Task</label>
-          <input type="text" placeholder="Enter task...">
+          <label name="task">Task</label>
+          <input type="text" placeholder="Enter task..." id="task">
           <label name="date">Date:</label>
-          <input type="date" placeholder="Enter date">
+          <input type="date" placeholder="Enter date" id="date">
           <label name="day">Day:</label>
           <input type="text" placeholder="day" value="${className}">
-          <label name="time" >From:</label>
-          <input type="time" >
-          <label name="time" >To:</label>
-          <input type="time" >
-          <button type="submit">Confirm</button>
+          <label name="time">From:</label>
+          <input type="time" id="from-time">
+          <label name="time">To:</label>
+          <input type="time" id="to-time">
+          <button type="submit" id="confirm">Confirm</button>
           <button id="cancel" type="reset">Cancel</button>
         </form>
       </div>
     `;
+    const cancelButton = document.getElementById('cancel');
+    cancelButton.addEventListener('click', () => {
+      dialog.close('animalNotChosen');
+      openCheck(dialog, className);
+    });
+
+    const handleSubmit = document.getElementById('form-data');
+    handleSubmit.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const taskInput = document.getElementById('task').value;
+      const dateInput = document.getElementById('date').value;
+      const fromTimeInput = document.getElementById('from-time').value;
+      const toTimeInput = document.getElementById('to-time').value;
+      const tdElement = document.querySelector(`td.${className}`);
+
+      const storedDataString = localStorage.getItem('userData');
+      const storedData = storedDataString ? JSON.parse(storedDataString) : {};
+      const key = `${className}-${Date.now()}`;
+
+      storedData[key] = {
+        task: taskInput,
+        date: dateInput,
+        fromTime: fromTimeInput,
+        toTime: toTimeInput,
+      };
+
+      localStorage.setItem('userData', JSON.stringify(storedData));
+
+      // Display stored data again
+      displayStoredData(tdElement, storedData[key]);
+
+      dialog.close();
+    });
   }
 };
 
+const storedDataString = localStorage.getItem('userData');
+const storedData = storedDataString ? JSON.parse(storedDataString) : {};
+
 const tableCells = document.querySelectorAll('td');
 tableCells.forEach((cells) => {
+  const tdElement = document.querySelector(`td.${cells.className}`);
+  for (key in storedData) {
+    if (Object.prototype.hasOwnProperty.call(storedData, key)){
+      if (cells.className.startsWith(key.substring(0, 3))){
+        displayStoredData(tdElement, storedData[key]);
+      }
+    }
+  }
   cells.addEventListener('click', () => {
     dialog.showModal();
     openCheck(dialog, cells.className);
   });
 });
-
-dialog.returnValue = 'favAnimal';
-
-cancelButton.addEventListener('click', () => {
-  dialog.close('animalNotChosen');
-  openCheck(dialog);
-});
-
-// class Modal {
-//   constructor() {
-//     this.tableCells = document.querySelectorAll('td');
-//     this.modal = document.getElementById('modal');
-//     this.addEventListeners();
-//   }
-
-//   addEventListeners() {
-//     this.tableCells.forEach((cell) => {
-//       cell.addEventListener('click', () => this.openModal(cell.className));
-//     });
-//     this.modal.addEventListener('click', () => this.closeModal());
-//   }
-
-//   openModal() {
-//     this.modal.style.display = 'flex';
-//     this.modal.innerHTML = `
-//         <h2>Fill in the details</h2>
-//         <form id="myForm">
-//           <label for="name">Name:</label>
-//           <input type="text" id="name" name="name" required>
-//           <br>
-//           <label for="email">Email:</label>
-//           <input type="emial" id="email" name="email" required>
-//           <br>
-//           <button type="submit">Submit</button>
-//         </form>
-//       `;
-//     const form = document.getElementById('myForm');
-//     form.addEventListener('submit', (e) => this.handleSubmit(e));
-
-//     const formElements = form.querySelector('input, button');
-//     formElements.forEach((element) => {
-//       element.addEventListener('click', (e) => e.stopPropagation());
-//     });
-//   }
-
-//   handleSubmit(event) {
-//     event.preventDefault();
-//     const formData = new FormData(event.target);
-//     const name = formData.get('name');
-//     const email = formData.get('email');
-
-//     console.log(`Name: ${name}, Email: ${email}`);
-//     this.closeModal();
-//   }
-
-//   closeModal() {
-//     this.modal.style.display = 'none';
-//     // this.modal.innerText = 'exiting';
-//   }
-// }
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const modal = new Modal();
-// });
-// // eslint-disable-next-line no-unused-vars
-// // const modal = new Modal();
