@@ -62,7 +62,6 @@ const openCheck = (dialog, className) => {
 
       localStorage.setItem('userData', JSON.stringify(storedData));
 
-      // Display stored data again
       displayStoredData(tdElement, storedData[key]);
 
       dialog.close();
@@ -76,13 +75,11 @@ const storedData = storedDataString ? JSON.parse(storedDataString) : {};
 const tableCells = document.querySelectorAll('td');
 tableCells.forEach((cells) => {
   const tdElement = document.querySelector(`td.${cells.className}`);
-  for (key in storedData) {
-    if (Object.prototype.hasOwnProperty.call(storedData, key)){
-      if (cells.className.startsWith(key.substring(0, 3))){
-        displayStoredData(tdElement, storedData[key]);
-      }
+  Object.keys(storedData).forEach((key) => {
+    if (cells.className.startsWith(key.substring(0, 3))) {
+      displayStoredData(tdElement, storedData[key]);
     }
-  }
+  });
   cells.addEventListener('click', () => {
     dialog.showModal();
     openCheck(dialog, cells.className);
