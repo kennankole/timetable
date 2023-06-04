@@ -1,7 +1,52 @@
-body {
-  background-color: rgb(233, 162, 76);
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(200, 200, 200);
+  letter-spacing: 1px;
+  font-size: 1rem;
 }
 
-.hello {
-  color: red;
+td,
+th {
+  padding: 10px 20px;
+  border: 1px solid rgb(190, 190, 190);
+}
+
+.time-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3%;
+  border: 1px solid rgb(190, 190, 190);
+}
+
+.heading {
+  text-align: center;
+}
+
+.sunday {
+  background: yellow;
+}
+
+.monday {
+  background-color: yellowgreen;
+}
+
+.tuesday {
+  background-color: aquamarine;
+}
+
+.wednesday {
+  background-color: midnightblue;
+}
+
+.thursday {
+  background-color: antiquewhite;
+}
+
+.friday {
+  background-color: green;
+}
+
+.saturday {
+  background-color: goldenrod;
 }

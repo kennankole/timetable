@@ -4,9 +4,36 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>My Timetable</title>
 </head>
 <body>
-  <h1>Let's account for out time</h1>
+  <div class="time-table">
+    <h1 class="heading">Let's account for out time</h1>
+    <table>
+      <tr>
+        <th >Sunday</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</td>
+        <th>Saturday</th>
+      </tr>
+      <tr>
+        <td class="sunday"></td>
+        <td class="monday"></td>
+        <td class="tuesday"></td>
+        <td class="wednesday"></td>
+        <td class="thursday"></td>
+        <td class="friday"></td>
+        <td class="saturday"></td>
+      </tr>
+    </table>
+  </div>
+  <dialog id="favDialog">
+    <div id="form-container"></div>
+  </dialog>
+  <script src="./index.js" defer></script>
 </body>
 </html>
