@@ -1,13 +1,15 @@
 const dialog = document.getElementById('favDialog');
 
-const displayStoredData = (tdElement, data) => {
+const displayStoredData = (tdElement, data, key) => {
   if (data) {
     tdElement.innerHTML += `
-      <div>
+      <div data-key="${key}">
         <p>Task: ${data.task}</p>
         <p>Date: ${data.date}</p>
         <p>From: ${data.fromTime}</p>
         <p>To: ${data.toTime}</p>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
       </div>
     `;
   }
@@ -62,7 +64,7 @@ const openCheck = (dialog, className) => {
 
       localStorage.setItem('userData', JSON.stringify(storedData));
 
-      displayStoredData(tdElement, storedData[key]);
+      displayStoredData(tdElement, storedData[key], key);
 
       dialog.close();
     });
@@ -77,7 +79,7 @@ tableCells.forEach((cells) => {
   const tdElement = document.querySelector(`td.${cells.className}`);
   Object.keys(storedData).forEach((key) => {
     if (cells.className.startsWith(key.substring(0, 3))) {
-      displayStoredData(tdElement, storedData[key]);
+      displayStoredData(tdElement, storedData[key], key);
     }
   });
 });
@@ -87,5 +89,20 @@ addElements.forEach((elem) => {
   elem.addEventListener('click', () => {
     dialog.showModal();
     openCheck(dialog, elem.parentElement.className);
+  });
+});
+
+const deleteButtons = document.querySelectorAll('.delete');
+deleteButtons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    const divElement = event.target.parentElement;
+    const key = divElement.getAttribute('data-key');
+    const tdElement = divElement.closest('td');
+    tdElement.removeChild(divElement);
+
+    const storedDataString = localStorage.getItem('userData');
+    const storedData = storedDataString ? JSON.parse(storedDataString) : {};
+    delete storedData[key];
+    localStorage.setItem('userData', JSON.stringify(storedData));
   });
 });
