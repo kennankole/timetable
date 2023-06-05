@@ -80,8 +80,12 @@ tableCells.forEach((cells) => {
       displayStoredData(tdElement, storedData[key]);
     }
   });
-  cells.addEventListener('click', () => {
+});
+
+const addElements = document.querySelectorAll('.plus');
+addElements.forEach((elem) => {
+  elem.addEventListener('click', () => {
     dialog.showModal();
-    openCheck(dialog, cells.className);
+    openCheck(dialog, elem.parentElement.className);
   });
 });
