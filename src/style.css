@@ -5,6 +5,10 @@ table {
   font-size: 1rem;
 }
 
+.plus {
+  cursor: pointer;
+}
+
 td,
 th {
   padding: 10px 20px;
