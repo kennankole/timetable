@@ -3,7 +3,7 @@ const renderData = (tdElement, data) => {
   Object.keys(data).forEach((key) => {
     if (tdElement.className.startsWith(key.substring(0, 3))) {
       content += `
-        <div data-key="${key}">
+        <div data-key="${key}" class="task-elements">
           <p>Task: ${data[key].task}</p>
           <p>Date: ${data[key].date}</p>
           <p>From: ${data[key].fromTime}</p>

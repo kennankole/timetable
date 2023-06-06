@@ -1,7 +1,8 @@
 table {
   border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
   border: 2px solid rgb(200, 200, 200);
-  letter-spacing: 1px;
   font-size: 1rem;
 }
 
@@ -11,17 +12,16 @@ table {
 
 td,
 th {
-  padding: 10px 20px;
   border: 1px solid rgb(190, 190, 190);
 }
 
-.time-table {
+/* .time-table {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 3%;
   border: 1px solid rgb(190, 190, 190);
-}
+} */
 
 .heading {
   text-align: center;
@@ -29,6 +29,9 @@ th {
 
 .sunday {
   background: yellow;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .monday {
@@ -53,4 +56,9 @@ th {
 
 .saturday {
   background-color: goldenrod;
+}
+
+/*++++++++++++++++TASK ELEMENTS+++++++++++++++++++++*/
+.task-elements {
+  border: 1px solid grey;
 }
