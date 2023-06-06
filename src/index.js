@@ -1,19 +1,10 @@
-const dialog = document.getElementById('favDialog');
+import { handleEdit, handleEditButtons } from './edit.js';
+import displayStoredData from './display.js';
+import { handleDeleteButtons } from './delete.js';
 
-const displayStoredData = (tdElement, data) => {
-  if (data) {
-    tdElement.innerHTML += `
-      <div>
-        <p>Task: ${data.task}</p>
-        <p>Date: ${data.date}</p>
-        <p>From: ${data.fromTime}</p>
-        <p>To: ${data.toTime}</p>
-      </div>
-    `;
-  }
-};
+export const dialog = document.getElementById('favDialog');
 
-const openCheck = (dialog, className) => {
+export const openCheck = (dialog, className) => {
   if (dialog.open) {
     document.getElementById('form-container').innerHTML = `
       <div>
@@ -36,7 +27,7 @@ const openCheck = (dialog, className) => {
     `;
     const cancelButton = document.getElementById('cancel');
     cancelButton.addEventListener('click', () => {
-      dialog.close('animalNotChosen');
+      dialog.close();
       openCheck(dialog, className);
     });
 
@@ -61,9 +52,9 @@ const openCheck = (dialog, className) => {
       };
 
       localStorage.setItem('userData', JSON.stringify(storedData));
-
       displayStoredData(tdElement, storedData[key]);
-
+      // eslint-disable-next-line no-use-before-define
+      handleAdd(tdElement, { [key]: storedData[key] });
       dialog.close();
     });
   }
@@ -73,19 +64,27 @@ const storedDataString = localStorage.getItem('userData');
 const storedData = storedDataString ? JSON.parse(storedDataString) : {};
 
 const tableCells = document.querySelectorAll('td');
-tableCells.forEach((cells) => {
-  const tdElement = document.querySelector(`td.${cells.className}`);
-  Object.keys(storedData).forEach((key) => {
-    if (cells.className.startsWith(key.substring(0, 3))) {
-      displayStoredData(tdElement, storedData[key]);
-    }
-  });
+displayStoredData(tableCells, storedData);
+
+handleDeleteButtons();
+
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('edit')) {
+    const editButton = event.target;
+    handleEdit(editButton, dialog, openCheck);
+    handleEditButtons();
+  }
 });
 
-const addElements = document.querySelectorAll('.plus');
-addElements.forEach((elem) => {
-  elem.addEventListener('click', () => {
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('plus')) {
     dialog.showModal();
-    openCheck(dialog, elem.parentElement.className);
-  });
+    openCheck(dialog, event.target.parentNode.className);
+  }
 });
+
+const handleAdd = (tdElement, data) => {
+  displayStoredData(tdElement, data);
+  handleDeleteButtons();
+  handleEditButtons(dialog, openCheck);
+};
