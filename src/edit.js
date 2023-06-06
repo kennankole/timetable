@@ -1,7 +1,6 @@
 import { handleDeleteButtons } from './delete.js';
-import { dialog, openCheck } from './open.js';
 
-export const handleEdit = (editButton) => {
+export const handleEdit = (editButton, dialog, openCheck) => {
   const editDivElement = editButton.parentElement;
   const editKey = editDivElement.getAttribute('data-key');
   const editTdElement = editDivElement.closest('td');
@@ -48,23 +47,23 @@ export const handleEdit = (editButton) => {
         <button class="edit">Edit</button>
         <button class="delete">Delete</button>
       `;
-      const oldDivElement = document.querySelector(`div[data-key="${editKey}"]`);
-      oldDivElement.innerHTML = editedDivElement.outerHTML;
+      editDivElement.replaceWith(editedDivElement);
+      window.location.reload();
       handleDeleteButtons();
       // eslint-disable-next-line no-use-before-define
-      handleEditButtons();
+      handleEditButtons(dialog, openCheck);
     };
     handleSubmit.addEventListener('submit', sumbitListener);
   }
 };
 
-export const handleEditButtons = () => {
+export const handleEditButtons = (dialog, openCheck) => {
   const editButtons = document.querySelectorAll('.edit');
   editButtons.forEach((button) => {
     button.removeEventListener('click', handleEdit);
     button.addEventListener('click', (event) => {
       const editButton = event.target;
-      handleEdit(editButton);
+      handleEdit(editButton, dialog, openCheck);
     });
   });
 };
