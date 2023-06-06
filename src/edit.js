@@ -1,5 +1,4 @@
 import { handleDeleteButtons } from './delete.js';
-import displayStoredData from './display.js';
 import { dialog, openCheck } from './open.js';
 
 export const handleEdit = (editButton) => {
@@ -50,8 +49,7 @@ export const handleEdit = (editButton) => {
         <button class="delete">Delete</button>
       `;
       const oldDivElement = document.querySelector(`div[data-key="${editKey}"]`);
-      editTdElement.replaceChild(editedDivElement, oldDivElement);
-      displayStoredData(editTdElement, editStoredData[editKey], editKey);
+      oldDivElement.innerHTML = editedDivElement.outerHTML;
       handleDeleteButtons();
       // eslint-disable-next-line no-use-before-define
       handleEditButtons();
