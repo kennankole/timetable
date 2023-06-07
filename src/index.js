@@ -9,7 +9,7 @@ export const openCheck = (dialog, className) => {
     document.getElementById('form-container').innerHTML = `
       <div>
         <h1>Plan your ${className}</h1>
-        <form method="" id="form-data">
+        <form method="" id="form-dataa">
           <label name="task">Task</label>
           <input type="text" placeholder="Enter task..." id="task">
           <label name="date">Date:</label>
@@ -83,7 +83,7 @@ document.addEventListener('click', (event) => {
   }
 });
 
-const handleAdd = (tdElement, data) => {
+export const handleAdd = (tdElement, data) => {
   displayStoredData(tdElement, data);
   handleDeleteButtons();
   handleEditButtons(dialog, openCheck);

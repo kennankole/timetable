@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="./styles/div.css">
+  <script src="./index.js" defer type="module"></script>
+  <script src="./modules/pop.js" defer type="module"></script>
   <title>My Timetable</title>
 </head>
 <body>
-  <div class="time-table">
+  <!-- <div class="time-table">
     <h1 class="heading">Let's account for out time</h1>
     <table>
       <caption>The value of time is beyond computation</caption>
@@ -52,24 +54,43 @@
     </table>
   </div>
   <dialog id="favDialog">
+    <div id="form-containerr"></div>
+  </dialog> -->
+
+  <dialog id="popUp">
     <div id="form-container"></div>
   </dialog>
+
   <div class="container">
-    <div class="elem">
-      Sunday
-      <div class="content">
-        <p>Task: CS50 Lectures</p>
-        <p>Date: 07/06/2023</p>
-        <p>Start: 9:50AM - 10:50AM</p>
-      </div>
+    <div class="day-of-the-week">
+      <div class="sunday">Sunday</div>
+      <span class="new-task">Add task</span>
     </div>
-    <div class="elem">Monday</div>
-    <div class="elem">Tuesday</div>
-    <div class="elem">Wednesday</div>
-    <div class="elem">Thursday</div>
-    <div class="elem">Friday</div>
-    <div class="elem">Saturday</div>
+    <div class="day-of-the-week">
+      <div class="monday">Monday</div>
+      <span class="new-task">Add task</span>
+    </div>
+    <div class="day-of-the-week">
+      <div class="tuesday">Tuesday</div>
+      <span class="new-task">Add task</span>
+    </div>
+    <div class="day-of-the-week">
+      <div class="wednesday">Wednesday</div>
+      <span class="new-task">Add task</span>
+    </div>
+    <div class="day-of-the-week">
+      <div class="thursday">Thursday</div>
+      <span class="new-task">Add task</span>
+    </div>
+    <div class="day-of-the-week">
+      <div class="friday">Friday</div>
+      <span class="new-task">Add task</span>
+    </div>
+    <div class="day-of-the-week">
+      <div class="saturday">Saturday</div>
+      <span class="new-task">Add task</span>
+    </div>
   </div>
-  <script src="./index.js" defer type="module"></script>
+
 </body>
 </html>

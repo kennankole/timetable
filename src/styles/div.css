@@ -6,10 +6,14 @@
   text-align: center;
   /* flex-wrap: wrap; */
 }
-.elem {
+.day-of-the-week {
   border: 2px solid grey;
   width: 100%;
 }
 .content {
   text-align: start;
+}
+
+.new-task {
+  cursor: pointer;
 }

@@ -27,34 +27,34 @@ th {
   text-align: center;
 }
 
-.sunday {
+.sundays {
   background: yellow;
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.monday {
+.mondays {
   background-color: yellowgreen;
 }
 
-.tuesday {
+.tuesdays {
   background-color: aquamarine;
 }
 
-.wednesday {
+.wednesdays {
   background-color: midnightblue;
 }
 
-.thursday {
+.thursdays {
   background-color: antiquewhite;
 }
 
-.friday {
+.fridays {
   background-color: green;
 }
 
-.saturday {
+.saturdays {
   background-color: goldenrod;
 }
 
