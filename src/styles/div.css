@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  gap: 2px;
+  border: 1px solid grey;
+  justify-content: space-around;
+  text-align: center;
+  /* flex-wrap: wrap; */
+}
+.elem {
+  border: 2px solid grey;
+  width: 100%;
+}
+.content {
+  text-align: start;
+}
