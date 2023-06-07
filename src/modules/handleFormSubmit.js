@@ -1,6 +1,6 @@
-import displayStoredData from '../display.js';
+import displayStoredData from './display.js';
 
-const handleSubmitForm = (dialog, className) => {
+const handleSubmitForm = (className, dialog) => {
   const taskInput = document.getElementById('task').value;
   const dateInput = document.getElementById('date').value;
   const fromTimeInput = document.getElementById('from-time').value;
@@ -19,8 +19,8 @@ const handleSubmitForm = (dialog, className) => {
     toTime: toTimeInput,
   };
   localStorage.setItem('userData', JSON.stringify(storedData));
-  displayStoredData(divElement);
-  // handleAdd(tdElement, { [key]: storedData[key] });
+  displayStoredData(divElement, storedData);
   dialog.close();
 };
+
 export default handleSubmitForm;

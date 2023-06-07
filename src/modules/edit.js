@@ -3,12 +3,11 @@ import { handleDeleteButtons } from './delete.js';
 export const handleEdit = (editButton, dialog, openCheck) => {
   const editDivElement = editButton.parentElement;
   const editKey = editDivElement.getAttribute('data-key');
-  const editTdElement = editDivElement.closest('td');
-
+  const editTdElement = editDivElement.closest('div');
   const editStoredDataString = localStorage.getItem('userData');
   const editStoredData = editStoredDataString ? JSON.parse(editStoredDataString) : {};
 
-  if (editKey && editStoredData[editKey]) {
+  if (editKey && editStoredData[editKey] && !dialog.open) {
     const {
       task, date, fromTime, toTime,
     } = editStoredData[editKey];
@@ -48,10 +47,10 @@ export const handleEdit = (editButton, dialog, openCheck) => {
         <button class="delete">Delete</button>
       `;
       editDivElement.replaceWith(editedDivElement);
-      window.location.reload();
       handleDeleteButtons();
       // eslint-disable-next-line no-use-before-define
       handleEditButtons(dialog, openCheck);
+      dialog.close();
     };
     handleSubmit.addEventListener('submit', sumbitListener);
   }
@@ -67,4 +66,3 @@ export const handleEditButtons = (dialog, openCheck) => {
     });
   });
 };
-export default handleEdit;
