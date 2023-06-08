@@ -11,7 +11,6 @@ const handleSubmitForm = (className, dialog) => {
   const storedData = storedDataString ? JSON.parse(storedDataString) : {};
 
   const key = `${className}-${Date.now()}`;
-
   storedData[key] = {
     task: taskInput,
     date: dateInput,

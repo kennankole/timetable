@@ -8,7 +8,7 @@ const getRandomColor = () => {
   let green;
   let blue;
   let alpha;
-  let isDullColor = true; // Flag to check if the color is dull or black
+  let isDullColor = true;
 
   while (isDullColor) {
     red = Math.floor(Math.random() * (maxBrightness - minBrightness + 1) + minBrightness);
@@ -16,7 +16,6 @@ const getRandomColor = () => {
     blue = Math.floor(Math.random() * (maxBrightness - minBrightness + 1) + minBrightness);
     alpha = Math.random() * (maxAlpha - minAlpha) + minAlpha;
 
-    // Check if the color is dull or black
     isDullColor = red < minBrightness / 2 && green < minBrightness / 2 && blue < minBrightness / 2;
   }
 

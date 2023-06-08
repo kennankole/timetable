@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 * {
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Nanum Myeongjo', serif;
+  color: rgba(31, 28, 29, 0.95);
   background-color: rgba(212, 212, 212, 0.81);
 }
+
 .container {
   padding: 3%;
 }
@@ -25,22 +29,37 @@ header {
   padding: 3%;
 }
 
+.header {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 2%;
+}
+
+.reference {
+  font-size: 0.7rem;
+}
+
+.profile {
+  font-weight: 700;
+}
+
 .column-header,
 .header {
   text-align: center;
 }
+
 .new-task {
   cursor: pointer;
   padding: 1%;
-  margin: 1%;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   border: 1px solid #fff;
   background-color: rgba(212, 212, 212, 0.81);
   border-radius: 4px;
   transition: all 0.5s ease-out;
+  font-weight: 700;
 }
 
-.new-task:hover, 
+.new-task:hover,
 .new-task:focus {
   background-color: rgba(95, 107, 120, 0.63);
 }
@@ -67,7 +86,9 @@ div[class*="sunday"] {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   font-size: 1rem;
-  font-weight: 700px;
+  line-height: 50px;
+  font-weight: 700;
+  margin-bottom: 3%;
 }
 
 /* Navigtion menu */
@@ -89,7 +110,9 @@ div[class*="sunday"] {
   font-size: 2.5rem;
   font-weight: 700;
 }
-.logo, .profile {
+
+.logo,
+.profile {
   padding: 2%;
 }
 
@@ -103,19 +126,19 @@ footer {
 }
 
 button {
-  border: 1px solid rgba(78, 204, 24, 0.82);
+  border: 1px solid rgba(212, 215, 210, 0.82);
   position: relative;
   padding: 5px 15px;
   border-radius: 4px;
   font-size: 0.8rem;
   box-sizing: border-box;
-  background-color: rgba(78, 204, 24, 0.82);
+  background-color: rgba(179, 241, 153, 0.82);
   font-family: 'Nanum Myeongjo', serif;
   font-weight: 700;
   transition: all 0.5s ease-out;
 }
 
-button:hover, 
+button:hover,
 button:focus {
   background-color: rgba(15, 250, 97, 0.72);
   border: 1px solid #fff;

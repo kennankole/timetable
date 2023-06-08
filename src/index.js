@@ -2,7 +2,6 @@ import { handleEdit, handleEditButtons } from './modules/edit.js';
 import displayStoredData from './modules/display.js';
 import { handleDeleteButtons } from './modules/delete.js';
 import handleSubmitForm from './modules/handleFormSubmit.js';
-import getRandomColor from './modules/color.js';
 
 const storedDataString = localStorage.getItem('userData');
 const storedData = storedDataString ? JSON.parse(storedDataString) : {};
@@ -12,24 +11,30 @@ export const dialog = document.getElementById('popUp');
 export const openCheck = (dialog, className) => {
   if (dialog.open) {
     document.getElementById('form-container').innerHTML = `
-      <div>
-        <h1>Plan your ${className}</h1>
+        <h3 class="form-title">Plan your ${className}</h3>
         <form method="" id="form-data">
-          <label name="task">Task</label>
-          <input type="text" placeholder="Enter task..." id="task">
-          <label name="date">Date:</label>
-          <input type="date" placeholder="Enter date" id="date">
-          <label name="day">Day:</label>
-          <input type="text" placeholder="day" value="${className}">
-          <label name="time">From:</label>
-          <input type="time" id="from-time">
-          <label name="time">To:</label>
-          <input type="time" id="to-time">
-          <button type="submit" id="confirm">Confirm</button>
-          <button id="cancel" type="reset">Cancel</button>
+          <div class="form-label">
+            <label name="task">Task</label>
+            <input type="text" placeholder="Enter task..." id="task" required>
+          </div>
+          <div class="form-label">
+            <label name="date">Date</label>
+            <input type="date" placeholder="Enter date" id="date" required>
+          </div>
+          <div class="form-label">
+            <label name="time">From</label>
+            <input type="time" id="from-time" placeholder="time" required>
+          </div>
+          <div class="form-label">
+            <label name="time">To</label>
+            <input type="time" id="to-time" required>
+          </div>
+          <div class="submit-btns">
+            <button type="submit" id="confirm" class="form-btn">Submit</button>
+            <button id="cancel" type="reset  class="form-btn">Cancel</button>
+          </div>
         </form>
-      </div>
-    `;
+      `;
     const cancelButton = document.getElementById('cancel');
     cancelButton.addEventListener('click', () => {
       dialog.close();
@@ -65,8 +70,3 @@ const timeTableTasks = document.querySelectorAll('.sunday, .monday, .tuesday, .w
 displayStoredData(timeTableTasks, storedData);
 
 handleDeleteButtons();
-
-const tableElements = document.querySelectorAll('.task-elements');
-tableElements.forEach((element) => {
-  element.style.backgroundColor = getRandomColor();
-});
