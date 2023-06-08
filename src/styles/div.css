@@ -1,19 +1,75 @@
+
 .container {
-  display: flex;
-  gap: 2px;
+  padding: 3%;
   border: 1px solid grey;
-  justify-content: space-around;
-  text-align: center;
-  /* flex-wrap: wrap; */
-}
-.day-of-the-week {
-  border: 2px solid grey;
-  width: 100%;
-}
-.content {
-  text-align: start;
+  margin-top: 5%;
 }
 
+.day-of-the-week {
+  border: 1px solid grey;
+  margin-bottom: 3%;
+  padding: 1%;
+}
+
+header {
+  text-align: center;
+  font-size: 3rem;
+  padding: 3%;
+}
+.column-header,
+.header {
+  text-align: center;
+}
 .new-task {
   cursor: pointer;
+  padding: 1%;
+  margin: 1%;
+}
+
+div[class*="monday"],
+div[class*="tuesday"],
+div[class*="wednesday"],
+div[class*="thursday"],
+div[class*="friday"],
+div[class*="saturday"],
+div[class*="sunday"] {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100px;
+  justify-content: space-between;
+  gap: 1%;
+}
+
+.task-elements {
+  border: 1px solid grey;
+  padding: 1%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .task-elements {
+    flex: 1 0 50%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .task-elements {
+    flex: 1 0 35%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 992px) {
+  .task-elements {
+    flex: 1 0 2%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .task-elements {
+    flex: 1 0 20%;
+  }
 }
