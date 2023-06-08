@@ -2,6 +2,7 @@ import { handleEdit, handleEditButtons } from './modules/edit.js';
 import displayStoredData from './modules/display.js';
 import { handleDeleteButtons } from './modules/delete.js';
 import handleSubmitForm from './modules/handleFormSubmit.js';
+import getRandomColor from './modules/color.js';
 
 const storedDataString = localStorage.getItem('userData');
 const storedData = storedDataString ? JSON.parse(storedDataString) : {};
@@ -64,3 +65,8 @@ const timeTableTasks = document.querySelectorAll('.sunday, .monday, .tuesday, .w
 displayStoredData(timeTableTasks, storedData);
 
 handleDeleteButtons();
+
+const tableElements = document.querySelectorAll('.task-elements');
+tableElements.forEach((element) => {
+  element.style.backgroundColor = getRandomColor();
+});

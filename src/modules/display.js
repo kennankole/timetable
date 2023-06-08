@@ -28,4 +28,5 @@ const displayStoredData = (tdElements, data) => {
     }
   }
 };
+
 export default displayStoredData;

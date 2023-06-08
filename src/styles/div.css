@@ -1,21 +1,30 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Nanum Myeongjo', serif;
+  background-color: rgba(212, 212, 212, 0.81);
+}
 .container {
   padding: 3%;
-  border: 1px solid grey;
-  margin-top: 5%;
 }
 
 .day-of-the-week {
-  border: 1px solid grey;
+  border: 2px solid rgba(240, 240, 240, 0.81);
+  border-radius: 5px;
   margin-bottom: 3%;
   padding: 1%;
 }
 
 header {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   padding: 3%;
 }
+
 .column-header,
 .header {
   text-align: center;
@@ -24,6 +33,16 @@ header {
   cursor: pointer;
   padding: 1%;
   margin: 1%;
+  font-size: 0.8rem;
+  border: 1px solid #fff;
+  background-color: rgba(212, 212, 212, 0.81);
+  border-radius: 4px;
+  transition: all 0.5s ease-out;
+}
+
+.new-task:hover, 
+.new-task:focus {
+  background-color: rgba(95, 107, 120, 0.63);
 }
 
 div[class*="monday"],
@@ -42,8 +61,64 @@ div[class*="sunday"] {
 }
 
 .task-elements {
-  border: 1px solid grey;
+  border-radius: 5px;
   padding: 1%;
+  box-shadow: -28px 4px 24px 1px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  font-size: 1rem;
+  font-weight: 700px;
+}
+
+/* Navigtion menu */
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: rgba(41, 38, 148, 0.9);
+  position: sticky;
+  top: 0;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  z-index: 7;
+}
+
+.logo {
+  font-family: 'Satisfy', cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.logo, .profile {
+  padding: 2%;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3%;
+  background-color: grey;
+  position: sticky;
+}
+
+button {
+  border: 1px solid rgba(78, 204, 24, 0.82);
+  position: relative;
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  box-sizing: border-box;
+  background-color: rgba(78, 204, 24, 0.82);
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: 700;
+  transition: all 0.5s ease-out;
+}
+
+button:hover, 
+button:focus {
+  background-color: rgba(15, 250, 97, 0.72);
+  border: 1px solid #fff;
 }
 
 /* Extra small devices (phones, 600px and down) */
