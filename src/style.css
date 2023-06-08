@@ -1,56 +1,63 @@
-table {
-  border-collapse: collapse;
-  border: 2px solid rgb(200, 200, 200);
-  letter-spacing: 1px;
-  font-size: 1rem;
+dialog {
+  border: none;
+  border-radius: 4px;
 }
 
-.plus {
-  cursor: pointer;
-}
-
-td,
-th {
-  padding: 10px 20px;
-  border: 1px solid rgb(190, 190, 190);
-}
-
-.time-table {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 3%;
-  border: 1px solid rgb(190, 190, 190);
-}
-
-.heading {
+.form-title {
   text-align: center;
 }
 
-.sunday {
-  background: yellow;
+#popUp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.monday {
-  background-color: yellowgreen;
+#form-container {
+  padding: 3%;
 }
 
-.tuesday {
-  background-color: aquamarine;
+#form-data {
+  display: flex;
+  padding: 5%;
+  flex-direction: column;
+  gap: 5%;
 }
 
-.wednesday {
-  background-color: midnightblue;
+input[type=text],
+input[type=date],
+input[type=time] {
+  width: 80%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.thursday {
-  background-color: antiquewhite;
+.submit-btns {
+  display: flex;
+  gap: 3%;
 }
 
-.friday {
-  background-color: green;
+#cancel,
+#confirm {
+  width: 50%;
+  background-color: #4caf50;
+  padding: 8px 15px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 0.9rem;
 }
 
-.saturday {
-  background-color: goldenrod;
+.form-label {
+  display: flex;
+  gap: 3%;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
 }

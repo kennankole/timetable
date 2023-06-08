@@ -1,24 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./styles/div.css">
+  <script src="./index.js" defer type="module"></script>
   <title>My Timetable</title>
 <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
+
 <body>
-  <h1>Let's account for out time</h1>
-  <table>
-    <tr>
-      <td>&nbsp;</td>
-      <td>Sunday</td>
-      <td>Monday</td>
-      <td>Tuesday</td>
-      <td>Wednesday</td>
-      <td>Thursday</td>
-      <td>Friday</td>
-      <td>Saturday</td>
-    </tr>
-  </table>
+  <dialog id="popUp">
+    <div id="form-container"></div>
+  </dialog>
+  <nav class="navbar">
+    <div class="logo">pino.io</div>
+    <div class="profile">username</div>
+  </nav>
+  <main>
+    <header>
+      Plan For Your Time.
+      <nav class="quotation">
+        <p class="header">
+          The value of time is beyond computation. <br>
+          Time squandered can never be recovered. <br>
+          <em><span class="reference">14LtMs, Ms 117, 1899, par. 10</span></em>
+          <a href="https://egwwritings.org/read?panels=p14064.6355015&index=0" target="_blank" rel="noopener">EGW Writings</a>
+        </p>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="day-of-the-week">
+        <h3 class="column-header">Sunday</h3>
+        <div class="sunday"></div>
+        <span class="new-task">Add task</span>
+      </div>
+      <div class="day-of-the-week">
+        <h3 class="column-header">Monday</h3>
+        <div class="monday"></div>
+        <span class="new-task">Add task</span>
+      </div>
+      <div class="day-of-the-week">
+        <h3 class="column-header">Tuesday</h3>
+        <div class="tuesday"></div>
+        <span class="new-task">Add task</span>
+      </div>
+      <div class="day-of-the-week">
+        <h3 class="column-header">Wednesday</h3>
+        <div class="wednesday"></div>
+        <span class="new-task">Add task</span>
+      </div>
+      <div class="day-of-the-week">
+        <h3 class="column-header">Thursday</h3>
+        <div class="thursday"></div>
+        <span class="new-task">Add task</span>
+      </div>
+      <div class="day-of-the-week">
+        <h3 class="column-header">Friday</h3>
+        <div class="friday"></div>
+        <span class="new-task">Add task</span>
+      </div>
+      <div class="day-of-the-week">
+        <h3 class="column-header">Saturday</h3>
+        <div class="saturday"></div>
+        <span class="new-task">Add task</span>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="company">
+      &copy; 2023 Pino technologies
+    </div>
+  </footer>
 </body>
+
 </html>

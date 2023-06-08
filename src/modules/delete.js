@@ -1,7 +1,7 @@
 export const handleDelete = (deleteDivElement) => {
   const deleteKey = deleteDivElement.getAttribute('data-key');
-  const deleteTdElement = deleteDivElement.closest('td');
-  deleteTdElement.removeChild(deleteDivElement);
+  const deleteTdElement = deleteDivElement.closest('div');
+  deleteTdElement.parentElement.removeChild(deleteDivElement);
   const deleteStoredDataString = localStorage.getItem('userData');
   const deleteStoredData = deleteStoredDataString ? JSON.parse(deleteStoredDataString) : {};
   delete deleteStoredData[deleteKey];

@@ -3,12 +3,10 @@ import { handleDeleteButtons } from './delete.js';
 export const handleEdit = (editButton, dialog, openCheck) => {
   const editDivElement = editButton.parentElement;
   const editKey = editDivElement.getAttribute('data-key');
-  const editTdElement = editDivElement.closest('td');
-
+  const editTdElement = editDivElement.closest('div');
   const editStoredDataString = localStorage.getItem('userData');
   const editStoredData = editStoredDataString ? JSON.parse(editStoredDataString) : {};
-
-  if (editKey && editStoredData[editKey]) {
+  if (editKey && editStoredData[editKey] && !dialog.open) {
     const {
       task, date, fromTime, toTime,
     } = editStoredData[editKey];
@@ -37,21 +35,17 @@ export const handleEdit = (editButton, dialog, openCheck) => {
 
       localStorage.setItem('userData', JSON.stringify(editStoredData));
 
-      const editedDivElement = document.createElement('div');
-      editedDivElement.setAttribute('data-key', editKey);
-      editedDivElement.innerHTML = `
+      editTdElement.innerHTML = `
         <p>Task: ${editedTaskInput}</p>
         <p>Date: ${editedDateInput}</p>
-        <p>From: ${editedFromTimeInput}</p>
-        <p>To: ${editedToTimeInput}</p>
+        <p>Time: ${editedFromTimeInput} - ${editedToTimeInput} </p>
         <button class="edit">Edit</button>
         <button class="delete">Delete</button>
       `;
-      editDivElement.replaceWith(editedDivElement);
-      window.location.reload();
       handleDeleteButtons();
       // eslint-disable-next-line no-use-before-define
       handleEditButtons(dialog, openCheck);
+      dialog.close();
     };
     handleSubmit.addEventListener('submit', sumbitListener);
   }
@@ -67,4 +61,3 @@ export const handleEditButtons = (dialog, openCheck) => {
     });
   });
 };
-export default handleEdit;
