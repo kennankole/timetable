@@ -1,3 +1,5 @@
+// import axios from 'axios';
+
 const createNotification = (task) => {
   const notification = new Notification('Task Reminder', {
     body: `It is time for ${task}`,
