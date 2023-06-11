@@ -3,6 +3,8 @@ import displayStoredData from './modules/display.js';
 import { handleDeleteButtons } from './modules/delete.js';
 import handleSubmitForm from './modules/handleFormSubmit.js';
 
+require('fix-esm').register();
+
 const storedDataString = localStorage.getItem('userData');
 const storedData = storedDataString ? JSON.parse(storedDataString) : {};
 
