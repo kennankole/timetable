@@ -1,5 +1,5 @@
 const getRandomColor = () => {
-  const minBrightness = 50; // Minimum brightness value (0-255)
+  const minBrightness = 50;
   const maxBrightness = 200; // Maximum brightness value (0-255)
   const maxAlpha = 1; // Maximum alpha value (1 for fully opaque)
   const minAlpha = 0; // Minimum alpha value (0 for fully transparent)
