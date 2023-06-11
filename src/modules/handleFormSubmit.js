@@ -9,6 +9,7 @@ const handleSubmitForm = (className, dialog) => {
 
   const storedDataString = localStorage.getItem('userData');
   const storedData = storedDataString ? JSON.parse(storedDataString) : {};
+  const date = new Date();
 
   const key = `${className}-${Date.now()}`;
   storedData[key] = {
@@ -16,6 +17,8 @@ const handleSubmitForm = (className, dialog) => {
     date: dateInput,
     fromTime: fromTimeInput,
     toTime: toTimeInput,
+    createdTime: date.toLocaleTimeString(),
+    dayCreated: className,
   };
   localStorage.setItem('userData', JSON.stringify(storedData));
   displayStoredData(divElement, storedData);
