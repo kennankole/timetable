@@ -1,5 +1,5 @@
 import getRandomColor from './color.js';
-// import handleTaskNotification from './notification.js';
+import handleTaskNotification from './notification.js';
 
 const renderData = (tdElement, data) => {
   let content = '';
@@ -23,8 +23,8 @@ const renderData = (tdElement, data) => {
         return;
       }
 
-      // const timeRemaining = taskTime - currentTime;
-      // handleTaskNotification(timeRemaining, taskData.task);
+      const timeRemaining = taskTime - currentTime;
+      handleTaskNotification(timeRemaining, taskData.task);
 
       content += `
         <div data-key="${key}" class="task-elements" style="background-color: ${getRandomColor()};">

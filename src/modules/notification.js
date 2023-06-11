@@ -1,5 +1,3 @@
-// import axios from 'axios';
-
 const createNotification = (task) => {
   const notification = new Notification('Task Reminder', {
     body: `It is time for ${task}`,
@@ -13,20 +11,19 @@ const showEnableNotificationPrompt = () => {
   console.log('Please enable notification to receive task reminder');
 };
 
-const askForNotificationPermission = () => {
-  Notification.requestPermission()
-    .then((permission) => {
-      if (permission === 'granted') {
-        createNotification();
-      } else if (permission === 'denied') {
-        showEnableNotificationPrompt();
-      } else if (permission === 'default') {
-        console.log('Notification permission dismissed by the user');
-      }
-    })
-    .catch((error) => {
-      console.error('Error requestion notification permission', error);
-    });
+const askForNotificationPermission = async () => {
+  try {
+    const permission = await Notification.requestPermission();
+    if (permission === 'granted') {
+      createNotification();
+    } else if (permission === 'denied') {
+      showEnableNotificationPrompt();
+    } else if (permission === 'default') {
+      console.log('Notification permission dismissed by the user');
+    }
+  } catch (error) {
+    console.error('Error requesting notification permission', error);
+  }
 };
 
 const handleTaskNotification = (timeRemaining, task) => {
