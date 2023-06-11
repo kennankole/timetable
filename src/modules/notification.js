@@ -8,7 +8,7 @@ const createNotification = (task) => {
 };
 
 const showEnableNotificationPrompt = () => {
-  alert('Please enable notification to receive task reminder');
+  console.log('Please enable notification to receive task reminder');
 };
 
 const askForNotificationPermission = () => {
