@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "This is an online timetable app for planning your week",
   "private": true,
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
@@ -40,6 +39,7 @@
   },
   "dependencies": {
     "fix-esm": "^1.0.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.7"
   }
 }
