@@ -19,9 +19,6 @@ module.exports = {
   },
   devServer: {
     static: './dist',
-    headers: {
-      'Content-Type': 'text/css',
-    },
   },
   optimization: {
     runtimeChunk: 'single',
