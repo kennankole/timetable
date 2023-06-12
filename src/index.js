@@ -3,6 +3,9 @@ import displayStoredData from './modules/display.js';
 import { handleDeleteButtons } from './modules/delete.js';
 import handleSubmitForm from './modules/handleFormSubmit.js';
 
+import './style.css';
+import './styling/div.css';
+
 const storedDataString = localStorage.getItem('userData');
 const storedData = storedDataString ? JSON.parse(storedDataString) : {};
 
