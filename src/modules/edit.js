@@ -8,7 +8,7 @@ export const handleEdit = (editButton, dialog, openCheck) => {
   const editStoredData = editStoredDataString ? JSON.parse(editStoredDataString) : {};
   if (editKey && editStoredData[editKey] && !dialog.open) {
     const {
-      task, date, fromTime, toTime,
+      task, date, fromTime, toTime, createdTime, dayCreated,
     } = editStoredData[editKey];
     dialog.showModal();
     openCheck(dialog, editTdElement.className);
@@ -31,6 +31,8 @@ export const handleEdit = (editButton, dialog, openCheck) => {
         date: editedDateInput,
         fromTime: editedFromTimeInput,
         toTime: editedToTimeInput,
+        createdTime,
+        dayCreated,
       };
 
       localStorage.setItem('userData', JSON.stringify(editStoredData));
@@ -39,6 +41,7 @@ export const handleEdit = (editButton, dialog, openCheck) => {
         <p>Task: ${editedTaskInput}</p>
         <p>Date: ${editedDateInput}</p>
         <p>Time: ${editedFromTimeInput} - ${editedToTimeInput} </p>
+        <p>Time Created: ${createdTime} </p>
         <button class="edit">Edit</button>
         <button class="delete">Delete</button>
       `;
