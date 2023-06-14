@@ -1,13 +1,13 @@
 import displayStoredData from './display.js';
 
-const handleSubmitForm = (className, dialog) => {
+const handleSubmitForm = (event, className, dialog) => {
+  event.preventDefault();
   const taskInput = document.getElementById('task').value;
   const dateInput = document.getElementById('date').value;
   const fromTimeInput = document.getElementById('from-time').value;
   const toTimeInput = document.getElementById('to-time').value;
   const divElement = document.querySelector(`div.${className}`);
 
-  console.log('Submitting', divElement.id);
   const storedDataString = localStorage.getItem('userData');
   const storedData = storedDataString ? JSON.parse(storedDataString) : {};
   const date = new Date();
