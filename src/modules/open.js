@@ -4,9 +4,6 @@ export const dialog = document.getElementById('popUp');
 
 export const openCheck = (dialog, className, classID) => {
   if (dialog.open) {
-    alert('Why did you call me');
-    // const classElement = document.querySelector(`.${className}`);
-    // console.log('Class ID', classID);
     document.getElementById('form-container').innerHTML = `
         <h3 class="form-title">Plan your ${classID}</h3>
         <form method="" id="form-data">
@@ -28,22 +25,22 @@ export const openCheck = (dialog, className, classID) => {
           </div>
           <div class="submit-btns">
             <button type="submit" id="confirm" class="form-btn">Submit</button>
-            <button id="cancel" type="reset  class="form-btn">Cancel</button>
+            <button id="cancel" type="reset"  class="form-btn">Cancel</button>
           </div>
         </form>
       `;
-    const cancelButton = document.getElementById('cancel');
-    cancelButton.addEventListener('click', () => {
-      dialog.close();
-      openCheck(dialog, className, classID);
-    });
-
     const handleSubmit = document.getElementById('form-data');
     console.log('Submitting form', handleSubmit);
     handleSubmit.addEventListener('submit', (e) => {
       e.preventDefault();
       handleSubmitForm(className, dialog);
-      // dialog.close();
+      dialog.close();
+    });
+
+    const cancelButton = document.getElementById('cancel');
+    cancelButton.addEventListener('click', () => {
+      dialog.close();
+      openCheck(dialog, className, classID);
     });
   }
 };

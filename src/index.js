@@ -1,4 +1,4 @@
-import { handleEdit, handleEditButtons } from './modules/edit.js';
+import { handleEdit } from './modules/edit.js';
 import displayStoredData from './modules/display.js';
 import { handleDeleteButtons } from './modules/delete.js';
 import { dialog, openCheck } from './modules/open.js';
@@ -16,6 +16,7 @@ document.addEventListener('click', (event) => {
     const classID = document.querySelector(`.${event.target.previousElementSibling.className}`);
     // console.log('This class ID', classID.id);
     openCheck(dialog, event.target.previousElementSibling.className, classID.id);
+    // dialog.close();
   }
 });
 
@@ -26,9 +27,9 @@ document.addEventListener('click', (event) => {
     const taskElement = event.target.parentElement;
     // console.log('Button element clicked', taskElement.id);
     handleEdit(editButton, taskElement.id);
-    dialog.close();
     // handleEditButtons(taskElement.id);
   }
+  // dialog.close();
 });
 
 const timeTableTasks = document.querySelectorAll('.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday');
