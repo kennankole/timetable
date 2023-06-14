@@ -12,9 +12,6 @@
 <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
 
 <body>
-  <dialog id="popUp">
-    <div id="form-container"></div>
-  </dialog>
   <nav class="navbar">
     <div class="logo">pino.io</div>
     <div class="profile">username</div>
@@ -27,48 +24,52 @@
           The value of time is beyond computation. <br>
           Time squandered can never be recovered. <br>
           <em><span class="reference">14LtMs, Ms 117, 1899, par. 10</span></em>
-          <a href="https://egwwritings.org/read?panels=p14064.6355015&index=0" target="_blank" rel="noopener">EGW Writings</a>
+          <a href="https://egwwritings.org/read?panels=p14064.6355015&index=0" target="_blank" rel="noopener">EGW
+            Writings</a>
         </p>
       </nav>
     </header>
     <div class="container">
       <div class="day-of-the-week">
         <h3 class="column-header">Sunday</h3>
-        <div class="sunday"></div>
+        <div class="sunday" id="sun"></div>
         <span class="new-task">Add task</span>
       </div>
       <div class="day-of-the-week">
         <h3 class="column-header">Monday</h3>
-        <div class="monday"></div>
+        <div class="monday" id="mon"></div>
         <span class="new-task">Add task</span>
       </div>
       <div class="day-of-the-week">
         <h3 class="column-header">Tuesday</h3>
-        <div class="tuesday"></div>
+        <div class="tuesday" id="tue"></div>
         <span class="new-task">Add task</span>
       </div>
       <div class="day-of-the-week">
         <h3 class="column-header">Wednesday</h3>
-        <div class="wednesday"></div>
+        <div class="wednesday" id="wed"></div>
         <span class="new-task">Add task</span>
       </div>
       <div class="day-of-the-week">
         <h3 class="column-header">Thursday</h3>
-        <div class="thursday"></div>
+        <div class="thursday" id="thur"></div>
         <span class="new-task">Add task</span>
       </div>
       <div class="day-of-the-week">
         <h3 class="column-header">Friday</h3>
-        <div class="friday"></div>
+        <div class="friday" id="fri"></div>
         <span class="new-task">Add task</span>
       </div>
       <div class="day-of-the-week">
         <h3 class="column-header">Saturday</h3>
-        <div class="saturday"></div>
+        <div class="saturday" id="sat"></div>
         <span class="new-task">Add task</span>
       </div>
     </div>
   </main>
+  <dialog id="popUp">
+    <div id="form-container"></div>
+  </dialog>
   <footer>
     <div class="company">
       &copy; 2023 Pino technologies

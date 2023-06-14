@@ -3,8 +3,8 @@ import displayStoredData from './modules/display.js';
 import { handleDeleteButtons } from './modules/delete.js';
 import { dialog, openForm } from './modules/open.js';
 
-// import './styling/div.css';
-// import './style.css';
+import './styling/div.css';
+import './style.css';
 
 const storedDataString = localStorage.getItem('userData');
 const storedData = storedDataString ? JSON.parse(storedDataString) : {};
