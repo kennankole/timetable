@@ -11,7 +11,7 @@ const renderData = (tdElement, data) => {
       const taskTime = new Date(`${taskData.date}T${taskData.fromTime}`);
       if (currentTime > taskTime) {
         content += `
-        <div data-key="${key}" class="task-elements" style="background-color: ${getRandomColor()};">
+        <div data-key="${key}" id="${key}" class="task-elements" style="background-color: ${getRandomColor()};">
           <p>Task: ${taskData.task}</p>
           <p>Date: ${taskData.date}</p>
           <p>Time: ${taskData.fromTime} - ${taskData.toTime} </p>
@@ -27,7 +27,7 @@ const renderData = (tdElement, data) => {
       handleTaskNotification(timeRemaining, taskData.task);
 
       content += `
-        <div data-key="${key}" class="task-elements" style="background-color: ${getRandomColor()};">
+        <div data-key="${key}" id="${key}" class="task-elements" style="background-color: ${getRandomColor()};">
           <p>Task: ${taskData.task}</p>
           <p>Date: ${taskData.date}</p>
           <p>Time: ${taskData.fromTime} - ${taskData.toTime} </p>

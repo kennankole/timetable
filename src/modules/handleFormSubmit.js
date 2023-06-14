@@ -7,6 +7,7 @@ const handleSubmitForm = (className, dialog) => {
   const toTimeInput = document.getElementById('to-time').value;
   const divElement = document.querySelector(`div.${className}`);
 
+  console.log('Submitting', divElement.id);
   const storedDataString = localStorage.getItem('userData');
   const storedData = storedDataString ? JSON.parse(storedDataString) : {};
   const date = new Date();
