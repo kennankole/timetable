@@ -1,24 +1,28 @@
 import { handleDeleteButtons } from './delete.js';
+import { dialog, openCheck } from './open.js';
+import handleEditButtons from './editButton.js';
 
-export const handleEdit = (editButton, dialog, openCheck) => {
+const handleEdit = (editButton) => {
   const editDivElement = editButton.parentElement;
   const editKey = editDivElement.getAttribute('data-key');
   const editTdElement = editDivElement.closest('div');
+
   const editStoredDataString = localStorage.getItem('userData');
   const editStoredData = editStoredDataString ? JSON.parse(editStoredDataString) : {};
+
   if (editKey && editStoredData[editKey] && !dialog.open) {
     const {
       task, date, fromTime, toTime, createdTime, dayCreated,
     } = editStoredData[editKey];
+
     dialog.showModal();
-    openCheck(dialog, editTdElement.className);
+    openCheck(dayCreated);
 
     document.getElementById('task').value = task;
     document.getElementById('date').value = date;
     document.getElementById('from-time').value = fromTime;
     document.getElementById('to-time').value = toTime;
 
-    const handleSubmit = document.getElementById('form-data');
     const sumbitListener = (event) => {
       event.preventDefault();
       const editedTaskInput = document.getElementById('task').value;
@@ -46,21 +50,11 @@ export const handleEdit = (editButton, dialog, openCheck) => {
         <button class="delete">Delete</button>
       `;
       handleDeleteButtons();
-      // eslint-disable-next-line no-use-before-define
-      handleEditButtons(dialog, openCheck);
+      handleEditButtons(handleEdit);
       dialog.close();
     };
+    const handleSubmit = document.getElementById('form-data');
     handleSubmit.addEventListener('submit', sumbitListener);
   }
 };
-
-export const handleEditButtons = (dialog, openCheck) => {
-  const editButtons = document.querySelectorAll('.edit');
-  editButtons.forEach((button) => {
-    button.removeEventListener('click', handleEdit);
-    button.addEventListener('click', (event) => {
-      const editButton = event.target;
-      handleEdit(editButton, dialog, openCheck);
-    });
-  });
-};
+export default handleEdit;
