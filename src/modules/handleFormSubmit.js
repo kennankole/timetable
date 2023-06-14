@@ -1,6 +1,7 @@
 import displayStoredData from './display.js';
 
-const handleSubmitForm = (className, dialog) => {
+const handleSubmitForm = (event, className, dialog) => {
+  event.preventDefault();
   const taskInput = document.getElementById('task').value;
   const dateInput = document.getElementById('date').value;
   const fromTimeInput = document.getElementById('from-time').value;
